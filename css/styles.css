@@ -207,6 +207,7 @@ div#programmer {
 }
 
 section#about::before {
+  display: block;
   background-image: url("../assets/bordatop.svg"),
     url("../assets/sombratop.svg");
   background-size: contain;
@@ -219,6 +220,7 @@ section#about::before {
 }
 
 section#about::after {
+  display: block;
   background-image: url("../assets/bordabottom.svg"),
     url("../assets/sombrabottom.svg");
   background-size: contain;
@@ -609,7 +611,15 @@ footer span a {
 
 
 /* Homelab */
-#homelab-wrap{
+section#homelab {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-align: center;
+  padding: 0 10%;
+}
+
+#homelab-wrap {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.2rem;
