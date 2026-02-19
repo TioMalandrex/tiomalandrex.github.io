@@ -14,7 +14,7 @@ function typeWriter(elementID, text) {
 
 document.querySelectorAll("ul#menu-content li a").forEach((item) => {
   item.addEventListener("click", () => {
-    document.querySelector("input[type=checkbox").checked = false;
+    document.querySelector('input[type="checkbox"]').checked = false;
   });
 });
-typeWriter("type-name", "DESENVOLVEDOR FULL-STACK");
+typeWriter("type-name", "INFRAESTRUTURA • AUTOMAÇÃO • OBSERVABILIDADE");
