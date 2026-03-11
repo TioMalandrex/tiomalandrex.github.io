@@ -131,6 +131,7 @@
   section#about,
   section#skills,
   section#homelab,
+  section#gaming,
   section#port,
   section#contact { padding: 56px 6%; }
 
@@ -150,6 +151,8 @@
   .info-contact { grid-template-columns: 1fr; }
 
   #homelab-wrap { grid-template-columns: 1fr; }
+
+  .gaming-grid { grid-template-columns: 1fr; }
 
   div#jobs { grid-template-columns: 1fr; }
 
