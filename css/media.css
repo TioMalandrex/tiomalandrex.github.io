@@ -1,168 +1,166 @@
-:root {
-  --main-primary-color: #66fcf1;
-  --main-primary-dark-color: #397977;
-  --main-dark-color: #1b222c;
-  --main-secondary-color: #202833;
-  --main-shadow-color: #252e3b;
-  --main-grey-color: #243443;
-  --main-text-color: #ffffff;
-  --main-text-secondary-color: #80858b;
-}
+/* ==========================================
+   MOBILE NAVIGATION OVERRIDES
+   ========================================== */
 @media only screen and (max-width: 768px) {
-  header#desktop > * {
-    display: none;
-  }
-  div#programmer {
-    display: none;
-  }
-  div#right-side {
+  header#desktop > * { display: none; }
+  header#desktop { display: none; }
+
+  div#programmer { display: none; }
+
+  #right-side {
     width: 100% !important;
-    padding: 0px 25px;
+    padding: 0;
   }
+
   header#mobile {
     display: flex;
-    align-items: space-between;
-    justify-content: center;
-    height: 40px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5%;
+    height: 56px;
     width: 100%;
-    flex: 1;
+    background: rgba(8, 13, 18, 0.92);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
   }
 
   header#mobile .logo {
     flex: 1;
     color: #fff;
     font-family: Orbitron;
-    font-style: normal;
     font-weight: 900;
-    font-size: 1.5rem;
-    line-height: 30px;
-    margin-right: 2px;
+    font-size: 1.1rem;
   }
 
   #menuToggle {
     display: flex;
     flex-direction: column;
     position: relative;
-
-    width: 100%;
-    height: 100%;
+    width: 40px;
+    height: 40px;
     z-index: 1;
-
     -webkit-user-select: none;
     user-select: none;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 5px;
   }
 
   #menuToggle a {
     text-decoration: none;
-    color: var(--main-text-color);
-
+    color: #e6edf3;
     transition: color 0.3s ease;
   }
 
-  #menuToggle a:hover {
-    color: var(--main-primary-color);
-  }
+  #menuToggle a:hover { color: #00ff9c; }
 
   #menuToggle input {
     display: block;
-    width: 30px;
-    height: 32px;
+    width: 40px;
+    height: 40px;
     position: absolute;
-
+    top: 0; right: 0;
     cursor: pointer;
-    z-index: 2; /* and place it over the hamburger */
+    z-index: 2;
     opacity: 0;
     -webkit-touch-callout: none;
   }
 
-  /*
- * Just a quick hamburger
- */
   #menuToggle span {
     display: block;
-    width: 33px;
-    height: 4px;
-    margin-bottom: 5px;
-    position: relative;
-
+    width: 28px;
+    height: 3px;
     background: #cdcdcd;
     border-radius: 3px;
-
     z-index: 1;
-
-    transform-origin: 4px 0px;
-
-    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
-      background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
+    transform-origin: 4px 0;
+    transition:
+      transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+      background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+      opacity 0.55s ease;
   }
 
-  #menuToggle span:first-child {
-    transform-origin: 0% 0%;
-  }
+  #menuToggle span:first-child { transform-origin: 0% 0%; }
+  #menuToggle span:nth-last-child(2) { transform-origin: 0% 100%; }
 
-  #menuToggle span:nth-last-child(2) {
-    transform-origin: 0% 100%;
-  }
-
-  /* 
- * Transform all the slices of hamburger
- * into a crossmark.
- */
   #menuToggle input:checked ~ span {
     opacity: 1;
     transform: rotate(45deg) translate(-2px, -1px);
     background: white;
   }
 
-  /*
- * But let's hide the middle one.
- */
   #menuToggle input:checked ~ span:nth-last-child(3) {
     opacity: 0;
     transform: rotate(0deg) scale(0.2, 0.2);
   }
 
-  /*
- * Ohyeah and the last one should go the other direction
- */
   #menuToggle input:checked ~ span:nth-last-child(2) {
     transform: rotate(-45deg) translate(0, -1px);
   }
 
-  /*
- * Make this absolute positioned
- * at the top left of the screen
- */
   #menu-content {
     display: flex;
     position: fixed;
-    width: 200px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    top: 0;
-    right: 0;
-    bottom: 0;
+    top: 0; right: 0; bottom: 0;
     width: 100%;
-    padding-top: 15vh;
-    background: var(--main-dark-color);
-    color: white;
+    padding-top: 10vh;
+    gap: 8px;
+    background: rgba(8, 13, 18, 0.97);
     list-style-type: none;
     -webkit-font-smoothing: antialiased;
-    /* to stop flickering of text in safari */
-
     transform-origin: 0% 50%;
     transform: translate(100%, 0);
-
     transition: all 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
   }
 
   #menu-content li {
-    padding: 10px 0;
-    font-size: 22px;
+    padding: 12px 0;
+    font-size: 1.3rem;
   }
 
-  #menuToggle input:checked ~ ul {
-    transform: none;
+  #menuToggle input:checked ~ ul { transform: none; }
+
+  /* Section padding adjustments */
+  section#about,
+  section#skills,
+  section#homelab,
+  section#port,
+  section#contact { padding: 56px 6%; }
+
+  #inicio {
+    padding: 60px 6% 80px;
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: auto;
   }
+
+  div#apresentation { max-width: 100%; }
+
+  div#apresentation h1 { font-size: 2.1rem; }
+
+  .about-stats { grid-template-columns: repeat(3, 1fr); }
+
+  .info-contact { grid-template-columns: 1fr; }
+
+  #homelab-wrap { grid-template-columns: 1fr; }
+
+  div#jobs { grid-template-columns: 1fr; }
+
+  .about-card { min-width: 100%; max-width: 100%; }
+
+  #right-side h2::after { display: none; }
+}
+
+@media only screen and (max-width: 480px) {
+  div#apresentation h1 { font-size: 1.75rem; }
+  .about-stats { grid-template-columns: 1fr 1fr; }
+  .hero-actions { flex-direction: column; align-items: flex-start; }
+  .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
 }
